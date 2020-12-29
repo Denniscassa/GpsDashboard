@@ -8,11 +8,12 @@ import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Autocomplete from "@material-ui/lab/Autocomplete";
+import SearchIcon from "@material-ui/icons/Search";
 
 const useStyles = makeStyles((theme) => ({
   form: {
     width: "100%", // Fix IE 11 issue.
-    margin :'2%',
+    margin: theme.spacing(0.5, 0,0),
     '& .MuiFormLabel-root': {
       color:"#30a7b5"},
     '& .MuiOutlinedInput-root': {
@@ -29,16 +30,16 @@ const useStyles = makeStyles((theme) => ({
   boxbackground:{
     backgroundColor:'#17a2b8',
     display:'flex-end',
-    color:'#ffffff',         
-    '&:hover': {
-      backgroundColor: '#047085',
-    },        
+    color:'#ffffff',               
   }, 
+  submit: {
+    margin: theme.spacing(0.5, 0, 0.5)
+  },
 }));
 
 const top100Films = [
   { title: "The Shawshank Redemption", year: 1994 },
-  { title: "The Godfather", year: 1972 },
+  { title: "The Godfather", year: 1972 }, 
   { title: "The Godfather: Part II", year: 1974 },
   { title: "The Dark Knight", year: 2008 },
   { title: "12 Angry Men", year: 1957 }
@@ -62,14 +63,21 @@ export default function Dsipatch() {
               options={top100Films}
               getOptionLabel={(option) => option.title}
               style={{ width: 250 }}
-              renderInput={(params) => (
+              renderInput={(params) => (  
                 <TextField {...params} label="vehiculo" variant="outlined"/>
               )}
             />
         </form>
-        <Grid item>
-            <Button className={classes.boxbackground}  variant="contained" color="primary">Buscar</Button>
-        </Grid>
+        <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+            startIcon={<SearchIcon />}
+          >
+            Buscar
+          </Button>
       </div>
     </Container>
   );

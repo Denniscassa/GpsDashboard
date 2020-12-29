@@ -10,18 +10,18 @@ import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
+import SearchIcon from "@material-ui/icons/Search";
 
 const useStyles = makeStyles((theme) => ({
     form: {
       width: '100%', // Fix IE 11 issue.    
     },
     boxbackground:{
-        backgroundColor:'#17a2b8',
-        display:'flex-end',
-        color:'#ffffff',         
-        '&:hover': {
-          backgroundColor: '#047085',
-        },        
+        backgroundColor:'#17a2b8',        
+        color:'#ffffff',      
+      },
+      submit: {
+        margin: theme.spacing(0, 0, 0.5)
       },
   }));
 
@@ -29,9 +29,9 @@ export default function SignIn() {
     const classes = useStyles();
   
     return (
-      <Container component="main" xs={12} sm={9} md={10} lg={12}>        
-        <div> 
-
+      <Container component="main" xs={12} sm={9} md={10} lg={12}>  
+      <CssBaseline/>      
+        <div>   
         <Grid item className={classes.boxbackground}>
           <Box p={2}>
           BUSES,TRAYECTOS
@@ -75,13 +75,20 @@ export default function SignIn() {
               control={<Checkbox value="remember" color="primary" />}
               label="Paraderos BA"
             />               
-            <CssBaseline />
-          </form>
-          <Grid item>
-            <Button className={classes.boxbackground}  variant="contained" color="primary">Buscar</Button>
-          </Grid>
-        </div>
 
+          </form>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+            startIcon={<SearchIcon />}
+          >
+            Buscar
+          </Button>
+        
+        </div>
       </Container>
         );
     }

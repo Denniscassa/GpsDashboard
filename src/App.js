@@ -2,7 +2,7 @@ import React from "react";
 import { Router, Route } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import GreetingCat from "./GreetingCat";
-import RandomCat from "./RandomCat";
+import RandomMonitoreo from "./RandomMonitoreo";
 import "./App.css";
 
 const defaultHistory = createBrowserHistory();
@@ -10,7 +10,7 @@ const defaultHistory = createBrowserHistory();
 function App({ history = defaultHistory }) {
   return (
     <Router history={history}>
-      <Route exact path="/" component={RandomCat} />
+      <Route exact path="/" component={RandomMonitoreo} />
       <Route exact path="/cat/:greeting" component={GreetingCat} />
     </Router>
   );

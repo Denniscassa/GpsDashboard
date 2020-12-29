@@ -5,6 +5,7 @@ import TextField from "@material-ui/core/TextField";
 import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
 import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Autocomplete from "@material-ui/lab/Autocomplete";
 
@@ -26,9 +27,13 @@ const useStyles = makeStyles((theme) => ({
   },
   
   boxbackground:{
-    backgroundColor: '#17a2b8',
-    color:'#ffffff',
-  },  
+    backgroundColor:'#17a2b8',
+    display:'flex-end',
+    color:'#ffffff',         
+    '&:hover': {
+      backgroundColor: '#047085',
+    },        
+  }, 
 }));
 
 const top100Films = [
@@ -62,6 +67,9 @@ export default function Dsipatch() {
               )}
             />
         </form>
+        <Grid item>
+            <Button className={classes.boxbackground}  variant="contained" color="primary">Buscar</Button>
+        </Grid>
       </div>
     </Container>
   );

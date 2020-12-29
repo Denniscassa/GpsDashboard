@@ -9,14 +9,19 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
     form: {
       width: '100%', // Fix IE 11 issue.    
     },
     boxbackground:{
-        backgroundColor: '#17a2b8', 
-        color:'#ffffff'        
+        backgroundColor:'#17a2b8',
+        display:'flex-end',
+        color:'#ffffff',         
+        '&:hover': {
+          backgroundColor: '#047085',
+        },        
       },
   }));
 
@@ -25,7 +30,8 @@ export default function SignIn() {
   
     return (
       <Container component="main" xs={12} sm={9} md={10} lg={12}>        
-        <div>            
+        <div> 
+
         <Grid item className={classes.boxbackground}>
           <Box p={2}>
           BUSES,TRAYECTOS
@@ -71,8 +77,11 @@ export default function SignIn() {
             />               
             <CssBaseline />
           </form>
+          <Grid item>
+            <Button className={classes.boxbackground}  variant="contained" color="primary">Buscar</Button>
+          </Grid>
         </div>
-  
+
       </Container>
         );
     }

@@ -21,7 +21,13 @@ const useStyles = makeStyles((theme) => ({
         color:'#ffffff',      
       },
       submit: {
-        margin: theme.spacing(0, 0, 0.5)
+      
+        margin: theme.spacing(0, 0, 0.5),
+        backgroundColor: '#17a2b8',    
+        '&:hover': {
+          backgroundColor: '#047085',
+        },
+        '&:focus': {backgroundColor: '#047085'},
       },
   }));
 

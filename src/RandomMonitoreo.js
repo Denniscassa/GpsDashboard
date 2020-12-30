@@ -15,6 +15,8 @@ import HeaderMap from './Components/HeaderMap';
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'auto',
+    background: 'linear-gradient(to top, #30a7b5,#5BAAB3)',
+    minHeight: '100vh'
   },
   toolbar: {    
   },
@@ -52,11 +54,15 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',   
     height: 'auto',
   },
+  spacynGrid:{
+    margin: theme.spacing(0.5, 0,0),
+  }
+
 }));
 export default function Dashboard() {
   const classes = useStyles();  
   return (
-    <div >
+    <div className={classes.root} >
       <CssBaseline />
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
@@ -72,12 +78,17 @@ export default function Dashboard() {
             </Grid>
             {/* Recent Deposits */}
             <Grid item xs={12} md={4} lg={3}>
-              <Paper className={classes.paperPathsBus}>
-                <PathsBus />
-              </Paper>
-              <Paper className={classes.paperMonitorear}>
-                <MonitorVehicle />
-              </Paper>
+              <Grid>
+                <Paper className={classes.paperPathsBus}>
+                  <PathsBus />
+                </Paper>
+              </Grid>
+              <CssBaseline />
+              <Grid  className={classes.spacynGrid}>
+                <Paper className={classes.paperMonitorear}>
+                  <MonitorVehicle />
+                </Paper>
+              </Grid>
             </Grid>
           </Grid>
         </Container>      

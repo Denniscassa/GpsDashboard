@@ -22,23 +22,21 @@ const useStyles = makeStyles((theme) => ({
       display: 'flex',
       border: `1px solid ${theme.palette.divider}`,
       flexWrap: 'wrap',
+      border: 'none', 
+      
     },
     divider: {
       margin: theme.spacing(1, 0.5),
     },    
-
     spacing:{
       direction:'column',
       alignItems:'center',
-      justify:'center',
-      padding:theme.spacing(1,0,0)      
+      justify:'center',          
     },
   }));
-
   const StyledToggleButtonGroup = withStyles((theme) => ({
     grouped: {
-      margin: theme.spacing(0.5),
-      border: 'none',            
+      margin: theme.spacing(0.5),           
       '&:not(:first-child)': {
         borderRadius: theme.shape.borderRadius,
         color:"#30a7b5", 
@@ -60,26 +58,23 @@ const useStyles = makeStyles((theme) => ({
   }))(ToggleButtonGroup);
 
 export default function SignIn() {
-
   const [alignment, setAlignment] = React.useState('left');
   const [formats, setFormats] = React.useState(() => ['italic']);
 
   const handleFormat = (event, newFormats) => {
     setFormats(newFormats);
   };
-
   const handleAlignment = (event, newAlignment) => {
     setAlignment(newAlignment);
   };
-
     const classes = useStyles();  
     return (
       <Container component="main" maxWidth="lg">        
         <div >
-          <Grid container >
+          <Grid container className={classes.spacing} >
             {/* Mapeo */}
-            <Grid item xs={12} md={4} lg={3} className={classes.spacing}>                
-              <Typography variant="body2" color="textSecondary" align="center">
+            <Grid item xs={12} md={4} lg={3} >                
+              <Typography  variant="body2" color="textSecondary"  align="center" >
                   MONITOREO TIEMPO REAL
               </Typography>
             </Grid>
@@ -118,16 +113,22 @@ export default function SignIn() {
                       </ToggleButton>
                       <ToggleButton value="underlined" >                        
                         Term B:6
-                      </ToggleButton>
-                     
+                      </ToggleButton>                     
                     </StyledToggleButtonGroup>
+
+                    <FormControlLabel
+                    control={<Checkbox value="remember" color="primary" />}                    
+                    />
+                    <Button onClick={() => window.print()}>
+                      P                            
+                    </Button>                      
+                    <Button onClick={() => window.print()}>
+                      [ ]                          
+                    </Button> 
                   </Paper>
                 </div>
-                <FormControlLabel
-                    control={<Checkbox value="remember" color="primary" />}
-                    label="Paraderos"
-                    />
             </Grid>
+
           </Grid>
         </div>          
       </Container>

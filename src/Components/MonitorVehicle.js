@@ -12,7 +12,7 @@ import SearchIcon from "@material-ui/icons/Search";
 
 const useStyles = makeStyles((theme) => ({
   form: {
-    width: "100%", // Fix IE 11 issue.
+    width: "auto", // Fix IE 11 issue.
     margin: theme.spacing(0.5, 0,0),
     '& .MuiFormLabel-root': {
       color:"#30a7b5"},
@@ -28,18 +28,20 @@ const useStyles = makeStyles((theme) => ({
   },
   
   boxbackground:{
+    margin: theme.spacing(0.3, 0, 0),
     backgroundColor:'#17a2b8',
-    display:'flex-end',
     color:'#ffffff',               
   }, 
   submit: {
-    margin: theme.spacing(0.5, 0, 0.5),
+    margin: theme.spacing(0.6, 0, 0.5),
+    justifyContent:"center",
+    width:'auto',
     backgroundColor: '#17a2b8',    
     '&:hover': {
       backgroundColor: '#047085',
     },
     '&:focus': {backgroundColor: '#047085'},
-  },
+  },  
 }));
 
 const top100Films = [
@@ -56,8 +58,8 @@ export default function Dsipatch() {
     <Container component="main" maxWidth="lg">
       <CssBaseline/>
       <div>
-      <Grid item xs={12} sm={7} md={9} lg={12}>
-        <Box className={classes.boxbackground} p={2}>
+      <Grid item className={classes.boxbackground} xs={12} md={4} lg={12}>
+        <Box p={2}>
             MONITOREAR VEHICULO
         </Box>
       </Grid>
@@ -66,8 +68,7 @@ export default function Dsipatch() {
               noOptionsText={'sin opciones'}
               id="combo-box-demo"
               options={top100Films}
-              getOptionLabel={(option) => option.title}
-              style={{ width: 250 }}
+              getOptionLabel={(option) => option.title}            
               renderInput={(params) => (  
                 <TextField {...params} label="vehiculo" variant="outlined"/>
               )}

@@ -14,21 +14,25 @@ import SearchIcon from "@material-ui/icons/Search";
 
 const useStyles = makeStyles((theme) => ({
     form: {
-      width: '100%', // Fix IE 11 issue.    
+      width: '100%', // Fix IE 11 issue.            
     },
     boxbackground:{
+        margin: theme.spacing(0.3, 0, 0),
         backgroundColor:'#17a2b8',        
         color:'#ffffff',      
-      },
-      submit: {
-      
+    },
+    submit: {      
         margin: theme.spacing(0, 0, 0.5),
+        width:'auto',
         backgroundColor: '#17a2b8',    
         '&:hover': {
           backgroundColor: '#047085',
         },
         '&:focus': {backgroundColor: '#047085'},
-      },
+    },
+    GridCheck:{
+      overflow:'visible'
+    }
   }));
 
 export default function SignIn() {
@@ -37,21 +41,21 @@ export default function SignIn() {
     return (
       <Container component="main" xs={12} sm={9} md={10} lg={12}>  
       <CssBaseline/>      
-        <div>   
+          
         <Grid item className={classes.boxbackground}>
           <Box p={2}>
           BUSES,TRAYECTOS
           </Box>
-        </Grid>
-          
-          <form className={classes.form} noValidate>
-            <FormControlLabel
+        </Grid>          
+        <Grid className={classes.GridCheck}  >
+        <form className={classes.form} >
+            <FormControlLabel 
               control={<Checkbox value="remember" color="primary" />}
-              label="Flota total vehicular"
+              label="Flota total vehicular"              
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
-              label="Unidades en doreccion AB"
+              label="Unidades en direccion AB"
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -76,14 +80,9 @@ export default function SignIn() {
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Paraderos AB"
-            />   
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Paraderos BA"
-            />               
-
+            />             
           </form>
-          <Button
+                    <Button
             type="submit"
             fullWidth
             variant="contained"
@@ -93,8 +92,8 @@ export default function SignIn() {
           >
             Buscar
           </Button>
+        </Grid>              
         
-        </div>
       </Container>
         );
     }

@@ -12,6 +12,10 @@ import PathsBus from './Components/PathsBus';
 import MonitorVehicle from './Components/MonitorVehicle';
 import HeaderMap from './Components/HeaderMap';
 
+import { FullScreen, useFullScreenHandle } from "react-full-screen";
+
+
+
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'auto',
@@ -60,8 +64,11 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 export default function Dashboard() {
+  
+  const handle = useFullScreenHandle();
+
   const classes = useStyles();  
-  return (
+  return (    
     <div className={classes.root} >
       <CssBaseline />
         <div className={classes.appBarSpacer} />
@@ -69,12 +76,24 @@ export default function Dashboard() {
           <Grid container spacing={1}>
             {/* Mapeo */}
             <Grid item xs={12} md={8} lg={9}>
-              <Paper className={classes.paperHeader}>
-                <HeaderMap />
+              <Paper className={classes.paperHeader}>                
+                <Grid>
+                  <HeaderMap />
+              </Grid>
+              <Grid>
+              <button onClick={handle.enter}>
+                full screem
+              </button>
+              </Grid>
               </Paper>
-              <Paper className={classes.paperMap}>
-                <Mapeo />
-              </Paper>
+              <Paper className={classes.paperMap}  style={{  }}  >    
+              <FullScreen handle={handle} >
+                                                  
+                    <Mapeo handle={handle} option={'100%'} />                
+                
+            </FullScreen>
+            </Paper>
+
             </Grid>
             {/* Recent Deposits */}
             <Grid item xs={12} md={4} lg={3}>

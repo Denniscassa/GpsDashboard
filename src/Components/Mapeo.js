@@ -8,9 +8,11 @@ import L from 'leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
+import FullscreenControl from 'react-leaflet-fullscreen';
+import 'react-leaflet-fullscreen/dist/styles.css';
+
 const useStyles = makeStyles((theme) => ({
-  MapContainer: {
-              
+  MapContainer: {              
     width: '100%',
     height:'75vh'  
   }, 
@@ -37,6 +39,7 @@ export default function Mapeo() {
         A pretty CSS3 popup. <br /> Easily customizable.  
       </Popup>
     </Marker>
+    <FullscreenControl position="topright" />
   </MapContainer>
   );
 }

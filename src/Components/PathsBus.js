@@ -11,6 +11,7 @@ import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import SearchIcon from "@material-ui/icons/Search";
+import Theme from "./Theme/Theme.json";
 
 const useStyles = makeStyles((theme) => ({
     form: {
@@ -18,20 +19,25 @@ const useStyles = makeStyles((theme) => ({
     },
     boxbackground:{
         margin: theme.spacing(0.3, 0, 0),
-        backgroundColor:'#17a2b8',        
-        color:'#ffffff',      
+        backgroundColor:Theme.primaryColor,        
+        color:Theme.secondaryColor,      
     },
     submit: {      
         margin: theme.spacing(0, 0, 0.5),
         width:'auto',
-        backgroundColor: '#17a2b8',    
+        backgroundColor: Theme.primaryColor,    
         '&:hover': {
-          backgroundColor: '#047085',
+          backgroundColor: Theme.buttonSelectColor,
         },
-        '&:focus': {backgroundColor: '#047085'},
+        '&:focus': {backgroundColor: Theme.buttonSelectColor},
     },
     GridCheck:{
-      overflow:'visible'
+      overflow:'visible',
+    },
+    checkBoxStyle:{
+      "&.MuiCheckbox-colorSecondary":{
+        color:Theme.primaryColor
+      }
     }
   }));
 
@@ -50,35 +56,35 @@ export default function SignIn() {
         <Grid className={classes.GridCheck}  >
         <form className={classes.form} >
             <FormControlLabel 
-              control={<Checkbox value="remember" color="primary" />}
+              control={<Checkbox value="remember" className={classes.checkBoxStyle} />}
               label="Flota total vehicular"              
             />
             <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
+              control={<Checkbox value="remember" className={classes.checkBoxStyle} />}
               label="Unidades en direccion AB"
             />
             <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
+              control={<Checkbox value="remember" className={classes.checkBoxStyle} />}
               label="Unidades en direccion BA"
             />
             <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
+              control={<Checkbox value="remember" className={classes.checkBoxStyle} />}
               label="Puntos de control AB"
             />  
             <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
+              control={<Checkbox value="remember" className={classes.checkBoxStyle} />}
               label="Puntos de control BA"
             />  
             <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
+              control={<Checkbox value="remember" className={classes.checkBoxStyle} />}
               label="Trayecto AB"
             />   
             <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
+              control={<Checkbox value="remember" className={classes.checkBoxStyle} />}
               label="Trayecto BA"
             />    
             <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
+              control={<Checkbox value="remember" className={classes.checkBoxStyle} />}
               label="Paraderos AB"
             />             
           </form>

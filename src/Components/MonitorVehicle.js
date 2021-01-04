@@ -9,38 +9,39 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import SearchIcon from "@material-ui/icons/Search";
+import Theme from "./Theme/Theme.json";
 
 const useStyles = makeStyles((theme) => ({
   form: {
     width: "auto", // Fix IE 11 issue.
     margin: theme.spacing(0.5, 0,0),
     '& .MuiFormLabel-root': {
-      color:"#30a7b5"},
+      color:Theme.primaryColor},
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
-        borderColor: '#30a7b5',
+        borderColor: Theme.primaryColor,
       },
       '&.Mui-focused fieldset': {
-        borderColor: '#30a7b5',
+        borderColor: Theme.primaryColor,
       },
     },    
-    color:'#30a7b5'  
+    color:Theme.primaryColor  
   },
   
   boxbackground:{
     margin: theme.spacing(0.3, 0, 0),
-    backgroundColor:'#17a2b8',
-    color:'#ffffff',               
+    backgroundColor:Theme.primaryColor,
+    color:Theme.secondaryColor,               
   }, 
   submit: {
     margin: theme.spacing(0.6, 0, 0.5),
     justifyContent:"center",
     width:'auto',
-    backgroundColor: '#17a2b8',    
+    backgroundColor: Theme.primaryColor,    
     '&:hover': {
-      backgroundColor: '#047085',
+      backgroundColor: Theme.buttonSelectColor,
     },
-    '&:focus': {backgroundColor: '#047085'},
+    '&:focus': {backgroundColor: Theme.buttonSelectColor},
   },  
 }));
 

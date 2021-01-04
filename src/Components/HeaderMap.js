@@ -13,6 +13,7 @@ import Divider from '@material-ui/core/Divider';
 import Paper from '@material-ui/core/Paper';
 import ToggleButton from '@material-ui/lab/ToggleButton';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
+import Theme from "./Theme/Theme.json";
 
 const useStyles = makeStyles((theme) => ({
     form: {
@@ -33,31 +34,37 @@ const useStyles = makeStyles((theme) => ({
       alignItems:'center',
       justify:'center',          
     },
+    checkBoxStyle:{
+      "&.MuiCheckbox-colorSecondary":{
+        color:Theme.primaryColor
+      }
+    }
   }));
   const StyledToggleButtonGroup = withStyles((theme) => ({
     grouped: {
       margin: theme.spacing(0.5),           
       '&:not(:first-child)': {
         borderRadius: theme.shape.borderRadius,
-        color:"#30a7b5", 
+        color:Theme.primaryColor, 
         '&:hover': {
-          backgroundColor: "#30a7b5",
-          color: '#ffffff',
+          backgroundColor: Theme.primaryColor,
+          color: Theme.secondaryColor,
         },   
       },
       '&:first-child': {
         borderRadius: theme.shape.borderRadius,
-        color:"#30a7b5",
+        color:Theme.primaryColor,
 
         '&:hover': {
-          backgroundColor: "#30a7b5",
-          color: '#ffffff',
+          backgroundColor:Theme.primaryColor,
+          color: Theme.secondaryColor,
         },    
       },
     },
   }))(ToggleButtonGroup);
 
 export default function SignIn() {
+  
   const [alignment, setAlignment] = React.useState('left');
   const [formats, setFormats] = React.useState(() => ['italic']);
 
@@ -117,14 +124,11 @@ export default function SignIn() {
                     </StyledToggleButtonGroup>
 
                     <FormControlLabel
-                    control={<Checkbox value="remember" color="primary" />}                    
+                    control={<Checkbox value="remember" className={classes.checkBoxStyle}/>}                    
                     />
                     <Button onClick={() => window.print()}>
                       P                            
                     </Button>                      
-                    <Button onClick={() => window.print()}>
-                      [ ]                          
-                    </Button> 
                   </Paper>
                 </div>
             </Grid>

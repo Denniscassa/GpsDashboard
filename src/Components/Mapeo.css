@@ -1,0 +1,8 @@
+
+.MapContainer {              
+    width: 100%;
+    height:75vh; 
+}
+.fullscreen-enabled .MapContainer {
+    height: 100vh;
+}

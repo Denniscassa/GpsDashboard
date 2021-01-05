@@ -8,15 +8,9 @@ import L from 'leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
-import FullscreenControl from 'react-leaflet-fullscreen';
-import 'react-leaflet-fullscreen/dist/styles.css';
 
-const useStyles = makeStyles((theme) => ({
-  MapContainer: {              
-    width: '100%',
-    height:'75vh'  
-  }, 
-}));
+import './Mapeo.css'
+
 
 let DefaultIcon = L.icon({
     iconUrl: icon,
@@ -26,10 +20,10 @@ let DefaultIcon = L.icon({
 L.Marker.prototype.options.icon = DefaultIcon;
 
 export default function Mapeo() {
-  const classes = useStyles();
+  
   const position = [-13.52264, -71.96734]
   return ( 
-    <MapContainer className={classes.MapContainer} center={position} zoom={13} maxZoom={18} scrollWheelZoom={false}>
+    <MapContainer className="MapContainer" center={position} zoom={13} maxZoom={18} scrollWheelZoom={false}>
     <TileLayer
       attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -39,7 +33,6 @@ export default function Mapeo() {
         A pretty CSS3 popup. <br /> Easily customizable.  
       </Popup>
     </Marker>
-    <FullscreenControl position="topright" />
   </MapContainer>
   );
 }
